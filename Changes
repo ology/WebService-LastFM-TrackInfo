@@ -1,6 +1,8 @@
 Revision history for WebService-LastFM-TrackInfo
 
 {{$NEXT}}
+
+0.0101 2022-06-03 20:03:15
     - Improve tests a bit.
 
 0.0100 2022-06-03 18:38:01
