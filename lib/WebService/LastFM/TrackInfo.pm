@@ -2,7 +2,7 @@ package WebService::LastFM::TrackInfo;
 
 # ABSTRACT: Access to the track.getInfo slice of the LastFM API
 
-our $VERSION = '0.0100';
+our $VERSION = '0.0101';
 
 use Moo;
 use strictures 2;
@@ -29,7 +29,7 @@ use Try::Tiny;
 =head1 DESCRIPTION
 
 C<WebService::LastFM::TrackInfo> provides access to the
-L<https://www.last.fm/api/show/track.getInfo> API.
+L<https://www.last.fm/api/show/track.getInfo> API slice.
 
 =head1 ATTRIBUTES
 
