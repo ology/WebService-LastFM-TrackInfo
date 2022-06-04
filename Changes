@@ -1,6 +1,7 @@
 Revision history for WebService-LastFM-TrackInfo
 
 {{$NEXT}}
+    - Improve tests a bit.
 
 0.0100 2022-06-03 18:38:01
     - Copied and tweaked from WebService::AcousticBrainz
