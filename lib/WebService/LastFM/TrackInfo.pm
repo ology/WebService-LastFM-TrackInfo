@@ -158,8 +158,9 @@ sub _handle_response {
     my $res = $tx->result;
 
     if ( $res->is_success ) {
+        my $body = $res->body;
+
         if ($self->format eq 'json') {
-            my $body = $res->body;
             try {
                 $data = decode_json($body);
             }
@@ -168,7 +169,7 @@ sub _handle_response {
             };
         }
         else {
-            $data = $res->body;
+            $data = $body;
         }
     }
     else {
