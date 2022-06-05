@@ -2,7 +2,7 @@ package WebService::LastFM::TrackInfo;
 
 # ABSTRACT: Access to the track.getInfo slice of the LastFM API
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0200';
 
 use Moo;
 use strictures 2;
@@ -145,29 +145,34 @@ sub fetch {
 
     my $tx = $self->ua->get($url);
 
-    my $data = _handle_response($tx);
+    my $data = $self->_handle_response($tx);
 
     return $data;
 }
 
 sub _handle_response {
-    my ($tx) = @_;
+    my ($self, $tx) = @_;
 
     my $data;
 
     my $res = $tx->result;
 
-    if ( $res->is_success ) {
-        my $body = $res->body;
-        try {
-            $data = decode_json($body);
+    if ($self->format eq 'json') {
+        if ( $res->is_success ) {
+            my $body = $res->body;
+            try {
+                $data = decode_json($body);
+            }
+            catch {
+                croak $body, "\n";
+            };
         }
-        catch {
-            croak $body, "\n";
-        };
+        else {
+            croak 'Connection error: ', $res->message;
+        }
     }
     else {
-        croak "Connection error: ", $res->message;
+        $data = $res->body;
     }
 
     return $data;

@@ -1,6 +1,7 @@
 Revision history for WebService-LastFM-TrackInfo
 
 {{$NEXT}}
+    - Handle XML response.
 
 0.0101 2022-06-03 20:03:15
     - Improve tests a bit.
