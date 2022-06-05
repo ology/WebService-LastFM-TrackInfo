@@ -157,8 +157,8 @@ sub _handle_response {
 
     my $res = $tx->result;
 
-    if ($self->format eq 'json') {
-        if ( $res->is_success ) {
+    if ( $res->is_success ) {
+        if ($self->format eq 'json') {
             my $body = $res->body;
             try {
                 $data = decode_json($body);
@@ -168,11 +168,11 @@ sub _handle_response {
             };
         }
         else {
-            croak 'Connection error: ', $res->message;
+            $data = $res->body;
         }
     }
     else {
-        $data = $res->body;
+        croak 'Connection error: ', $res->message;
     }
 
     return $data;
