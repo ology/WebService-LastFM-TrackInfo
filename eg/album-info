@@ -6,7 +6,7 @@ use Data::Dumper::Compact qw(ddc);
 use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(WebService-LastFM-TrackInfo);
 use WebService::LastFM::TrackInfo;
 
-my $api_key = shift || die qq/Usage: perl $0 your_api_key "Artist Name" "Track Name"\n/;
+my $api_key = shift || die qq/Usage: perl $0 your_api_key "Artist Name" "Album Name"\n/;
 my $artist  = shift || 'Led Zeppelin';
 my $album   = shift || 'Presence';
 
