@@ -27,7 +27,7 @@ use Try::Tiny;
 
   $w = WebService::LastFM::TrackInfo->new(
     api_key => 'abcdef123456',
-    method  => 'album.getInfo',
+    method  => 'album',
   );
   $r = $w->fetch(
     artist => 'Led Zeppelin',
@@ -146,8 +146,8 @@ sub fetch {
     my ( $self, %args ) = @_;
 
     croak 'No artist provided' unless $args{artist};
-    croak 'No track provided' if $self->method eq 'track.getInfo' && !$args{track};
-    croak 'No album provided' if $self->method eq 'album.getInfo' && !$args{album};
+    croak 'No track provided' if $self->method eq 'track' && !$args{track};
+    croak 'No album provided' if $self->method eq 'album' && !$args{album};
 
     my $url = Mojo::URL->new($self->base)
         ->path($self->version)
