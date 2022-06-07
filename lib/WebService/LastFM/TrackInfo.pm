@@ -36,11 +36,9 @@ use Try::Tiny;
 
 =head1 DESCRIPTION
 
-C<WebService::LastFM::TrackInfo> provides access to the
-L<https://www.last.fm/api/show/track.getInfo> API slice.
-
-This module may also be used to get information about other bits of
-the API, like artist or album, for example.
+C<WebService::LastFM::TrackInfo> provides access to a couple *.getInfo
+API slices.  This can also be used to get information about other bits
+of the API, like artist or album.
 
 =head1 ATTRIBUTES
 
