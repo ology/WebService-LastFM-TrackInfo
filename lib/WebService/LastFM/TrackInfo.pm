@@ -131,8 +131,8 @@ required B<api_key> argument.
 =head2 fetch
 
   $r = $w->fetch(artist => $artist, track => $track);
-  $r = $w->fetch(artist => $artist); # for method => artist.getInfo
   $r = $w->fetch(artist => $artist, album => $album); # for method => album.getInfo
+  $r = $w->fetch(artist => $artist); # for method => artist.getInfo
 
 Fetch the results given the B<artist> and B<track> arguments.
 
