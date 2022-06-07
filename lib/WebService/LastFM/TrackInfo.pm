@@ -32,7 +32,7 @@ C<WebService::LastFM::TrackInfo> provides access to the
 L<https://www.last.fm/api/show/track.getInfo> API slice.
 
 This module may also be used to get information about other bits of
-the API, like for an artist or album, for example.
+the API, like artist or album, for example.
 
 =head1 ATTRIBUTES
 
