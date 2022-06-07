@@ -19,12 +19,20 @@ use Try::Tiny;
   use WebService::LastFM::TrackInfo;
 
   my $w = WebService::LastFM::TrackInfo->new(api_key => 'abcdef123456');
-
   my $r = $w->fetch(
     artist => 'Led Zeppelin',
     track  => 'Kashmir',
   );
   print Dumper $r; # Do something cool with the result!
+
+  $w = WebService::LastFM::TrackInfo->new(
+    api_key => 'abcdef123456',
+    method  => 'album.getInfo',
+  );
+  $r = $w->fetch(
+    artist => 'Led Zeppelin',
+    album  => 'Presence',
+  );
 
 =head1 DESCRIPTION
 
