@@ -11,7 +11,7 @@ my $artist  = shift || 'Led Zeppelin';
 
 my $w = WebService::LastFM::TrackInfo->new(
     api_key => $api_key,
-    method  => 'artist.getInfo',
+    method  => 'artist',
 );
 
 my $r = $w->fetch(artist => $artist);

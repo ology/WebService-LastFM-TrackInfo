@@ -12,7 +12,7 @@ my $album   = shift || 'Presence';
 
 my $w = WebService::LastFM::TrackInfo->new(
     api_key => $api_key,
-    method  => 'album.getInfo',
+    method  => 'album',
 );
 
 my $r = $w->fetch(
