@@ -31,6 +31,9 @@ use Try::Tiny;
 C<WebService::LastFM::TrackInfo> provides access to the
 L<https://www.last.fm/api/show/track.getInfo> API slice.
 
+This module may also be used to get information about other bits of
+the API, like for an artist, for example.
+
 =head1 ATTRIBUTES
 
 =head2 api_key
@@ -115,7 +118,11 @@ has ua => (
 
 =head2 new
 
-  $w = WebService::LastFM::TrackInfo->new(api_key => $api_key);
+  $w = WebService::LastFM::TrackInfo->new(
+      api_key => $api_key,
+      method  => $method,
+      format  => $format,
+  );
 
 Create a new C<WebService::LastFM::TrackInfo> object with your
 required B<api_key> argument.
@@ -123,8 +130,9 @@ required B<api_key> argument.
 =head2 fetch
 
   $r = $w->fetch(artist => $artist, track => $track);
+  $r = $w->fetch(artist => $artist); # for method => artist.getInfo
 
-Fetch the results given the required B<artist> and B<track> arguments.
+Fetch the results given the B<artist> and B<track> arguments.
 
 =cut
 
@@ -132,7 +140,7 @@ sub fetch {
     my ( $self, %args ) = @_;
 
     croak 'No artist provided' unless $args{artist};
-    croak 'No track provided' unless $args{track};
+    croak 'No track provided' if $self->method eq 'track.getInfo' && !$args{track};
 
     my $url = Mojo::URL->new($self->base)
         ->path($self->version)
