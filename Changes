@@ -2,7 +2,7 @@ Revision history for WebService-LastFM-TrackInfo
 
 {{$NEXT}}
     - Add another test case.
-    - Improve documentation slightly.
+    - Improve documentation.
 
 0.0203 2022-06-06 21:41:57
     - Add the ability to search for album info.
