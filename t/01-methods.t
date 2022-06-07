@@ -21,7 +21,7 @@ subtest 'throws' => sub {
 
     $ws = new_ok 'WebService::LastFM::TrackInfo' => [
         api_key => 'abc123',
-        method  => 'album.getInfo',
+        method  => 'album',
     ];
 
     throws_ok { $ws->fetch(artist => 'foo') }
