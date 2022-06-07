@@ -51,7 +51,8 @@ has api_key => (
 
 =head2 method
 
-The required, last.fm API method string.
+The required, last.fm API method string ("track.getInfo",
+"artist.getInfo", or "album.getInfo").
 
 Default: C<track.getInfo>
 
@@ -131,6 +132,7 @@ required B<api_key> argument.
 
   $r = $w->fetch(artist => $artist, track => $track);
   $r = $w->fetch(artist => $artist); # for method => artist.getInfo
+  $r = $w->fetch(artist => $artist, album => $album); # for method => album.getInfo
 
 Fetch the results given the B<artist> and B<track> arguments.
 
@@ -141,6 +143,7 @@ sub fetch {
 
     croak 'No artist provided' unless $args{artist};
     croak 'No track provided' if $self->method eq 'track.getInfo' && !$args{track};
+    croak 'No album provided' if $self->method eq 'album.getInfo' && !$args{album};
 
     my $url = Mojo::URL->new($self->base)
         ->path($self->version)
@@ -194,7 +197,7 @@ __END__
 
 The F<t/*> tests
 
-The F<eg/*> program(s)
+The F<eg/*> programs
 
 L<https://www.last.fm/api/show/track.getInfo>
 
