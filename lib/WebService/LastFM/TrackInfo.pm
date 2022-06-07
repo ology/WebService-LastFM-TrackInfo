@@ -37,7 +37,7 @@ use Try::Tiny;
 =head1 DESCRIPTION
 
 C<WebService::LastFM::TrackInfo> provides access to a couple *.getInfo
-API slices: tracks, artists and albums.
+API slices: track, artist and album.
 
 =head1 ATTRIBUTES
 
