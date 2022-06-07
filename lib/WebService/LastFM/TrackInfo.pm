@@ -2,7 +2,7 @@ package WebService::LastFM::TrackInfo;
 
 # ABSTRACT: Access to *.getInfo slices of the last.fm API
 
-our $VERSION = '0.0204';
+our $VERSION = '0.0205';
 
 use Moo;
 use strictures 2;
