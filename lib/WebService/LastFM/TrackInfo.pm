@@ -56,16 +56,15 @@ has api_key => (
 
 =head2 method
 
-The required, last.fm API method string ("track.getInfo",
-"artist.getInfo", or "album.getInfo").
+The required method string ("track", "artist", or "album").
 
-Default: C<track.getInfo>
+Default: C<track>
 
 =cut
 
 has method => (
     is      => 'ro',
-    default => sub { 'track.getInfo' },
+    default => sub { 'track' },
 );
 
 =head2 format
@@ -136,10 +135,10 @@ required B<api_key> argument.
 =head2 fetch
 
   $r = $w->fetch(artist => $artist, track => $track);
-  $r = $w->fetch(artist => $artist, album => $album); # for method => album.getInfo
-  $r = $w->fetch(artist => $artist); # for method => artist.getInfo
+  $r = $w->fetch(artist => $artist, album => $album); # for method => album
+  $r = $w->fetch(artist => $artist); # for method => artist
 
-Fetch the results given the B<artist> and B<track> arguments.
+Fetch the results given the B<artist>, B<album> or B<track>.
 
 =cut
 
@@ -155,7 +154,7 @@ sub fetch {
         ->query(
             %args,
             api_key => $self->api_key,
-            method  => $self->method,
+            method  => $self->method . '.getInfo',
             format  => $self->format,
         );
 
