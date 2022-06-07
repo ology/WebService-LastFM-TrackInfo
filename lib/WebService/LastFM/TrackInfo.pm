@@ -1,6 +1,6 @@
 package WebService::LastFM::TrackInfo;
 
-# ABSTRACT: Access to the track.getInfo slice of the LastFM API
+# ABSTRACT: Access to the track.getInfo slice of the last.fm API
 
 our $VERSION = '0.0204';
 
