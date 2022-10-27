@@ -2,7 +2,7 @@ package WebService::LastFM::TrackInfo;
 
 # ABSTRACT: Access to *.getInfo slices of the last.fm API
 
-our $VERSION = '0.0205';
+our $VERSION = '0.0206';
 
 use strictures 2;
 use Carp qw(croak);
